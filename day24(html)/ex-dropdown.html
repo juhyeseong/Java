@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10.html</title>
+    <style>
+        ul {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+            width: 1020px;
+            margin: auto;
+        }
+        li {
+            cursor: pointer;
+            text-align: center;
+            padding: 10px 0;
+            width: 145px;
+            box-sizing: border-box;
+        }
+        ul > li {
+            border: 2px dashed blue;
+            position: relative;
+        }
+        ol {
+            list-style: none;
+            padding-left: 0;
+            position: absolute;
+            top:41px;
+            display: none;
+        }
+        ul > li:hover > ol {
+            display: block;
+        }
+        ol > li {
+            border: 2px dashed red;
+        }
+        li:active {
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>드랍다운 메뉴 형태 구현 (1)</h1>
+    <hr>
+
+    <ul>
+        <li><span>RONA Universe</span></li>
+        <li>
+            <span>남성의류</span>
+            <ol>
+                <li>아우터</li>
+                <li>탑</li>
+                <li>세트</li>
+                <li>바텀</li>
+                <li>악세서리</li>
+            </ol>
+        </li>
+        <li><span>아우터</span></li>
+        <li>
+            <span>탑</span>
+            <ol>
+                <li>니트</li>
+                <li>셔츠</li>
+                <li>블라우스</li>
+                <li>후드, 맨투맨</li>
+                <li>반팔T</li>
+                <li>긴팔T</li>
+            </ol>
+        </li>
+        <li><span>드레스</span></li>
+        <li>
+            <span>바텀</span>
+            <ol>
+                <li>팬츠</li>
+                <li>스커트</li>
+            </ol>
+        </li>
+        <li><span>악세서리</span></li>
+    </ul>
+</body>
+</html>

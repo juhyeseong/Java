@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz01.html</title>
+    <style>
+        .menu {
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .menu > button {
+            all: unset;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding : 10px;
+            box-sizing: border-box;
+            transition-duration: 0.5s; /* 속성값이 수치로 연산될 수 있는 경우 적용 가능 */
+            /* display: block; */
+            /* 수치 변화가 아니므로, 부드러운 변경이 적용되지 않음 */
+            opacity: 1;
+        }
+        .menu > button:hover {
+            cursor: pointer;
+            background-color: hotpink;
+            color: white;
+            transition-duration: 0.5s;
+            /* display: none */
+            opacity: 0;
+        }
+        .menu > #best {
+            color: rgb(168, 63, 248);
+        }
+        .menu > #best:hover {
+            color: white;
+        }
+        .menu > #new:hover {
+            color: white;
+        }
+        .menu > #new {
+            color: rgb(255, 107, 111);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>quiz01.html</h1>
+    <hr>
+
+    <div>
+        <img src="https://img.sonyunara.com/2021/asset/pc/img/common/header/renual_logo_pc.png" alt="sonyunara" width="140px">
+    </div>
+    <div class="menu">
+        <button id="best">베스트</button>
+        <button id="new">신상</button>
+        <button>아우터</button>
+        <button>상의</button>
+        <button>셔츠/블라우스</button>
+        <button>트레이닝</button>
+        <button>베이직</button>
+        <button>원피스</button>
+        <button>스커트</button>
+        <button>팬츠</button>
+        <button>가방</button>
+        <button>신발</button>
+        <button>액세서리</button>
+    </div>
+</body>
+</html>

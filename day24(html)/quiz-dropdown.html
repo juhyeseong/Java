@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdown-inven.html</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+
+            padding-left: 0;
+            width: 1020px;
+            margin: auto;
+
+            background-color: black;
+            color: white;
+        }
+        li {
+            cursor: pointer;
+            text-align: center;
+            
+            padding: 10px 0;
+            width: 160px;
+            box-sizing: border-box;
+            
+            font-size: 13px;
+            font-family: "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+        }
+        ul > li {
+            position: relative;
+            margin: 1px;
+
+            background-color: #061c25;
+
+            border-top: 2px solid #00b2cf;
+            border-bottom: 2px solid black;
+        }
+        ul > li:hover {
+            color: #2b9cb9;
+            border-bottom: 2px solid #00b2cf;
+        }
+        ol {
+            list-style: none;
+            padding-left: 0;
+            position: absolute;
+            top: 38px;
+            left: 0;
+            display: none;
+            border: 2px solid #00b2cf;
+        }
+        ul > li:hover > ol {
+            display: block;
+            background-color: #123643;
+            color: white;
+        }
+        ol > li {
+            text-align: left;
+            margin: 1px;
+            padding: 6px 0px;
+            padding-left: 10px;
+            font-size: 12px;
+        }
+        ol > li:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>lol.inven.co.kr 드랍다운 메뉴 구현</h1>
+
+    <ul>
+        <li><a href="">홈</a></li>
+        <li>
+            <a href="">기록실</a>
+            <ol>
+                <li><a href="">LoL 기록실-경기기록</a></li>
+                <li><a href="">LoL 기록실-선수기록</a></li>
+                <li><a href="">LoL 기록실-팀 통산</a></li>
+                <li><a href="">LoL 기록실-선수 통산</a></li>
+                <li><a href="">LoL 기록실-챔피언 픽/벤</a></li>
+                <li><a href="">LoL 기록실-레더 랭킹</a></li>
+                <li><a href="">LoL 프로팀 정보</a></li>
+            </ol>
+        </li>
+        <li><a href="">LCK 인벤</a></li>
+        <li>
+            <a href="">챔피언</a>
+            <ol>
+                <li><a href="">LoL 챔피언 정보</a></li>
+                <li><a href="">챔피언 능력치 랭킹</a></li>
+                <li><a href="">실시간 챔피언 평가</a></li>
+            </ol>
+        </li>
+        <li><a href="">카운터픽</a></li>
+        <li><a href="">공략</a></li>
+        <li><a href="">스킨갤러리</a></li>
+        <li><a href="">방송/영상</a></li>
+        <li>
+            <a href="">LoL DB</a>
+            <ol>
+                <li><a href="">시즌13 룬 시뮬</a></li>
+                <li><a href="">시즌13 아이템 DB</a></li>
+                <li><a href="">소환사 주문 DB</a></li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>
