@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>google구현</title>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+        }
+        section {
+            flex: 1;
+            padding-top: 10px;
+        }
+        section > article:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .left {
+            padding-left: 10px;
+            display: flex;
+        }
+        .left > article {
+            margin: 9px;
+        }
+        .right {
+            display: flex;
+            justify-content: right;
+            padding-right: 5px;
+        }
+        .right > article {
+            margin: 10px;
+        }
+        article {
+            font-size: 14px;
+        }
+        article > button {
+            all: unset;
+            border-radius: 4px;
+            width: 96px;
+            height: 36px;
+            background-color: #1a73e8;
+
+            text-align: center;
+            color: white;
+        }
+        main {
+            display: flex;
+            flex-flow: column;  /* main축을 90도 전환 */
+            justify-content: center;
+            align-items: center;
+            height: 70vh;       /* 높이 비율 */
+        }
+        .logo {
+            text-align: center;
+        }
+        .mainSearch {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .botton1 {
+            background-color: #f8f9fa;
+            box-sizing: border-box;
+        }
+        .button1 > button {
+            all: unset;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 14px;
+        }
+        .button1:hover {
+            border: 1px solid lightgray
+        }
+        .button2 > button {
+            all: unset;
+            cursor: pointer;
+            margin: 10px;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+            font-size: 14px;
+        }
+        .button2:hover {
+            border: 1px solid lightgray
+        }
+        .search {
+            padding: 10px;
+            width: 80%;
+            background-color: transparent;
+            padding-left: 10px;
+        
+            border: 1px solid #dfe1e5;
+            border-radius: 30px;
+            width: 550px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+        }
+        .search > input {
+            all: unset;
+            width: 70%;
+        }
+        .search:hover {
+            border: 2px solid lightgray;
+        }
+        .search > span {
+            margin: 0 0 0 10px;
+        }
+        .search > article {
+            margin-right: 10px;
+        }
+        .space {
+            height: 500px;
+        }
+        footer {
+            background-color: #dadce0;
+            width: 100%;
+            height: 77px;
+            position: absolute;
+            bottom: 24px;
+            font-size: 15px;
+        }
+        .top {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            background-color: #f2f2f2;
+            height: 50%;
+            margin-bottom: 2px;
+            color: #70757a;
+        }
+        .bottom {
+            display: flex;
+            align-content: center;
+            height: 50%;
+            background-color: #f2f2f2;
+            color: #70757a;
+        }
+        .bottomLeft {
+            flex: 1;
+            display: flex;
+            padding-left: 5%;
+        }
+        .bottomLeft > article {
+            margin: 0 0 0 15px;
+        }
+        .bottomRight {
+            flex: 1;
+            display: flex;
+            justify-content: right;
+            padding-right: 5%;
+        }
+        .bottomRight > article {
+            margin: 0 0 0 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <section class="left">
+            <article>Google 정보</article>
+            <article>스토어</article>
+        </section>
+        <section class="right">
+            <article>Gmail</article>
+            <article>이미지</article>
+            <article><img src="point.PNG"></article>
+            <article><button>로그인</button></article>
+        </section>
+    </header>
+
+    <main>
+        <div class="logo">
+            <img src="google.PNG">
+        </div>
+        <div class="mainSearch">
+            <div class="search">
+                <article><img src="dot.PNG"></article>
+                <input type="text" name="search">
+                <span class="keybord"><img src="keybord.PNG"></span>
+                <span><img src="마이크.PNG"></span>
+                <span><img src="camera.PNG"></span>
+            </div>
+        </div>
+        <div class="button">
+            <div class="button1">
+                <button>Google 검색</button>
+            </div>
+            <div class="button2">
+                <button>I`m Feeling Lucky</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <section class="top">
+            대한민국
+        </section>
+        <section class="bottom">
+            <div class="bottomLeft">
+                <article>광고</article>
+                <article>비즈니스</article>
+                <article>검색의 원리</article>
+            </div>
+            <div class="bottomRight">
+                <article>개인정보처리방침</article>
+                <article>약관</article>
+                <article>설정</article>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        const input = document.querySelector('input')
+        const buttonList = document.querySelectorAll('button')
+
+        input.onfocus = function() {
+            input.parentNode.style.border = '2px solid lightgray'
+        }
+
+        input.onblur = function() {
+            input.parentNode.style.border = '1px solid #dfe1e5'
+        }
+    </script>
+</body>
+</html>
