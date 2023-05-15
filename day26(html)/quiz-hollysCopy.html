@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2.html</title>
+    <style>
+        .frame {
+            width: 940px;
+            margin: 0 auto;
+        }
+        
+        .wrap{
+            display: flex;
+            justify-content: space-between;
+        }
+        header > .wrap ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            justify-content: flex-start;
+
+        }
+        .wrap ul > li {
+            margin: 5px;
+            font-weight: bold;
+            color: grey;
+            font-size: 10px;
+        }
+
+        nav > ul {
+            display: flex;
+            padding-left: 0;
+        }
+
+        nav > ul > li {
+            width: 156px;
+            height: 60px;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        nav > ul > li > .title {
+            font-weight: bold;
+            font-size: 17px;
+            color: black;
+            cursor: pointer;
+        }
+        nav > ul > li > .tooltip {
+            color: grey;
+            font-size: 13px;
+            visibility: hidden;
+        }
+        nav > ul > li:hover {
+            background-color: #ba000c;
+            color: white;
+        }
+        nav > ul > li:hover > div {
+            color: white;
+            visibility: visible;
+        }
+        div.dropdown {
+            width: 100%;
+            height: 0;
+            position: absolute;
+            top: 155px;
+            left: 0;
+            transition-duration: 0.5s;
+            display: flex;
+            justify-content: center;
+        }
+        .dropdown > .frame {
+            display: flex;
+            padding-left: 8px;
+        }
+        .flex {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .flex > ul {
+            list-style: none;
+            padding-left: 0;
+            display: none;
+            justify-content: center;
+            transition-duration: 0.5s;
+        }
+        div.dropdown > ul > li {
+            text-align: center;
+        }
+        nav:hover + div.dropdown {
+            height: 500px;
+            background-color: #4f4c4b;
+        }
+        nav:hover + div.dropdown > .frame > .flex > ul{
+            display: block;
+            justify-content: center;
+            transition-duration: 0.5s;
+            color: #808080;
+        }
+
+        .main1 {
+            display: flex;
+            margin-top: 50px;
+        }
+        .main1-1 {
+            width: 225px;
+            height: 271px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .main1-1top {
+            width: 225px;
+            height: 47px;
+        }
+        .main1-1bottom {
+            width: 225px;
+            height: 222px;
+        }
+        .main1-2 {
+            width: 478px;
+            height: 271px;
+        }
+        .main1-2top {
+            width: 100%;
+            height: 25%;
+        }
+        .main1-2bottom {
+            width: 100%;
+            height: 75%;
+            display: flex;
+        }
+        .main1-2bottom1 {
+            width: 160.22px;
+            height: 97%;
+        }
+        .main1-2bottom2 {
+            width: 160.22px;
+            height: 97%;
+        }
+        .main1-2bottom3 {
+            width: 160.22px;
+            height: 97%;
+        }
+        .main1-3 {
+            width: 226px;
+            height: 271px;
+        }
+        .main1-3top {
+            width: 226px;
+            height: 49px;
+        }
+        .main1-3bottom {
+            width: 226px;
+            height: 222px;
+        }
+        .main2 {
+            display: flex;
+            height: 152px;
+            margin-top: 50px;
+        }
+        .main2left {
+            width: 470px;
+            box-sizing: border-box;
+            margin-right: 15px;
+        }
+        .main2right {
+            width: 470px;
+            box-sizing: border-box;
+        }
+        .main3 {
+            display: flex;
+            width: 940px;
+            height: 106px;
+            border: 2px dashed red;
+        }
+        .main3-1 {
+            width: 235px;
+            height: 106px;
+            border: 2px dashed blue;
+        }
+        .main3-2 {
+            width: 235px;
+            height: 106px;
+            border: 2px dashed blue;
+        }
+        .main3-3 {
+            width: 235px;
+            height: 106px;
+            border: 2px dashed blue;
+        }
+        .main3-4 {
+            width: 235px;
+            height: 106px;
+            border: 2px dashed blue;
+        }
+        footer{
+            width: 100%;
+            height: 148px;
+            background-color: red;
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="frame">
+        <div class="wrap">
+            <div class="left">
+                <ul>
+                    <li><img src="hollys/창업설명회.PNG"></li>
+                    <li><img src="hollys/기업등판.PNG"></li>
+                </ul>
+            </div>
+            <div class="center">
+                <img src="hollys/logo.PNG">
+            </div>
+            <div class="right">
+                <ul>
+                    <li>멤버십 로그인</li>
+                    <li>멤버십 가입</li>
+                    <li>멤버십 고객센터</li>
+                    <li>English</li>
+                    <li>中文</li>
+                </ul>                    
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li>
+                    <div class="title">Menu</div>
+                    <div class="tooltip">메뉴</div>
+                </li>
+                <li>
+                    <div class="title">Hollys Mall</div>
+                    <div class="tooltip">할리스 몰</div>
+                </li>
+                <li>
+                    <div class="title">Membership</div>
+                    <div class="tooltip">멤버십</div>
+                </li>
+                <li>
+                    <div class="title">HOLLYS NEWS</div>
+                    <div class="tooltip">이벤트 및 공지</div>
+                </li>
+                <li>
+                    <div class="title">Store</div>
+                    <div class="tooltip">매장</div>
+                </li>
+                <li>
+                    <div class="title">HOLLYS is</div>
+                    <div class="tooltip">할리스 소개</div>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <div class="frame">
+                <div class="flex">
+                    <ul>
+                        <li>COFFEE</li>
+                        <li>라떼 · 초콜릿 · 티</li>
+                        <li>할리치노 · 빙수</li>
+                        <li>스무디 · 주스</li>
+                        <li>스파클링</li>
+                        <li>푸드</li>
+                        <li>MD상품</li>
+                        <li>MD식품</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li>할리스콘</li>
+                        <li>할리스카드</li>
+                        <li>E-store</li>
+                        <li>구매내역</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li>스마트오더</li>
+                        <li>멤버십 혜택</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li>Notice</li>
+                        <li>Event</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li>매장검색</li>
+                    </ul>
+                </div>
+                <div class="flex">
+                    <ul>
+                        <li>HOLLYS</li>
+                        <li>할리스 위치 및 연락처</li>
+                        <li>채용 안내</li>
+                        <li>가맹문의 및 절차</li>
+                        <li>B2B 사업 소개</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header> 
+    
+    <div class="banner">
+        <img src="hollys/banner.jpg">
+    </div>
+
+    <main>
+        <div class="frame">
+            <div class="main1">
+                <div class="main1-1">
+                    <div class="main1-1top">
+                        <img src="hollys/franchise.PNG">
+                    </div>
+                    <div class="main1-1bottom">
+                        <a href="">
+                            <img src="hollys/가맹문의.PNG">
+                        </a>
+                    </div>
+                </div>
+                <div class="main1-2">
+                    <div class="main1-2top">
+                        <img src="hollys/hollysmall.PNG">
+                    </div>
+                    <div class="main1-2bottom">
+                        <div class="main1-2bottom1">
+                            <img src="hollys/케이크.PNG">
+                        </div>
+                        <div class="main1-2bottom2">
+                            <img src="hollys/케이크2.PNG">
+                        </div>
+                        <div class="main1-2bottom3">
+                            <img src="hollys/케이크3.PNG">
+                        </div>
+                    </div>
+                </div>
+                <div class="main1-3">
+                    <div class="main1-3top">
+                        <img src="hollys/store.PNG">
+                    </div>
+                    <div class="main1-3bottom">
+                        <img src="hollys/건물사진.PNG">
+                    </div>
+                </div>
+            </div>
+            <div class="main2">
+                <div class="main2left">
+                    <img src="hollys/할리스 멤버십.PNG">
+                </div>
+                <div class="main2right">
+                    <img src="hollys/할리스카드.PNG">
+                </div>
+            </div>
+            <div class="main3">
+                <div class="main3-1"></div>
+                <div class="main3-2"></div>
+                <div class="main3-3"></div>
+                <div class="main3-4"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
