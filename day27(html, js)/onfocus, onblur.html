@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+    <style>
+        input {
+            all: unset;
+            padding: 10px;
+            width: 80%;
+            background-color: transparent;
+        }
+        div.input {
+            padding-left: 10px;
+            border: 2px solid silver;
+            margin: -2px;
+            width: 300px;
+            cursor: pointer;
+        }
+        div.inputId {
+            border-radius: 10px 10px 0 0;
+        }
+        div.inputPw {
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ex04.html</h1>
+    <hr>
+
+    <div class="form">
+        <div class="input inputId">
+            <span>☞</span>
+            <input type="text" name="id" placeholder="아이디">
+        </div>
+        <div class="input inputPw">
+            <span>☞</span>
+            <input type="password" name="pw" placeholder="패스워드">
+        </div>
+    </div>
+
+    <script>
+        const inputList = document.querySelectorAll('input')
+
+        for(let i = 0; i < inputList.length; i++) {
+            const input = inputList[i]
+
+            input.onfocus = function() {   // focus를 받고 있을 때
+                const target = input.parentNode
+                target.style.border = '2px solid #03c75a'
+                inputList[1].parentNode.style.borderTop = '2px solid #03c75a'
+                // [css style]  border-top
+                // [javascript] borderTop
+            }
+            input.onblur = function() {    // focus를 잃었을 때
+                const target = input.parentNode
+                target.style.border = '2px solid silver'
+                inputList[1].parentNode.style.borderTop = '2px solid silver'
+            }     
+        }
+    </script>
+</body>
+</html>

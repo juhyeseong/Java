@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        fieldset {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        /*  transition-duration: 0.5s;  */
+        }
+
+    /*  fieldset:hover {
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }   */
+
+        .more {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, white);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: blue;
+        }
+        .fold {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, white);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>ex03.html</h1>
+    <hr>
+
+    <fieldset>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, voluptates corrupti suscipit aspernatur dicta, et magnam sapiente ab porro dolorem accusantium praesentium quasi perferendis minima odit nam repellendus optio quibusdam!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam accusamus voluptates molestiae beatae ipsum corporis id rerum deserunt, cupiditate magni dicta. Ex sed quod commodi atque similique praesentium hic harum.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. At officia quas, fuga nihil enim laudantium consectetur nesciunt? Temporibus hic quam odit, maiores veniam asperiores, enim repellendus, illo ipsam perferendis beatae?
+        <div class="more">더 보고 싶으면 클릭ㅋ</div>
+        <div class="fold">접기</div>
+    </fieldset>
+
+    <script>
+        // css 선택자를 이용하여 문서 요소를 불러와서 변수에 저장한다
+        const more = document.querySelector('.more')
+        const fold = document.querySelector('.fold')
+        const fieldset = document.querySelector('fieldset')
+
+        more.onclick = function() {
+            more.style.display = 'none'
+            fieldset.style.height = '100%'
+            fold.style.display = 'block'
+        }
+        fold.onclick = function() {
+            fold.style.display = 'none'
+            fieldset.style.height = '200px'
+            more.style.display = 'block'
+        }
+        
+    </script>
+</body>
+</html>
