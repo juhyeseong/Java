@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <style>
+        body,
+        section {
+            width: 75%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        ul {
+            display: inline-block;
+        }
+
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        li {
+            display: inline-block;
+            width: 140px;
+            cursor: pointer;
+            border: 1px solid blue;
+            padding: 10px;
+            font-size: 12pt;
+            font-weight: bolder;
+        }
+
+
+        input[type="text"],
+        input[type="password"] {
+            font-size: 12pt;
+            padding: 10px;
+            width: 200px;
+        }
+
+        input[type="button"] {
+            font-size: 12pt;
+            padding: 10px;
+            width: 224px;
+            font-weight: bolder;
+            background-color: white;
+            border: 1px solid blue;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: burlywood;
+        }
+
+        input[type="button"]:active {
+            background-color: chocolate;
+            color: white;
+        }
+
+        fieldset {
+            text-align: center;
+        }
+
+        article {
+            display: none;
+        }
+
+        article.selected {
+            display: block;
+            transition-duration: 0.5s;
+        }
+        ul > li.selected {
+            background-color: black;
+            color: white;
+            transform: scale(110%);
+            transition-duration: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><a href="">PhoneBook</a></h1>
+    <ul class="tab">
+        <li id="insert">신규등록 <br>(POST, insert)</li>
+        <li id="search">검색하기 <br>(GET, select)</li>
+        <li id="update">수정하기 <br>(PUT, update)</li>
+        <li id="delete">삭제하기 <br>(DELETE, delete)</li>
+    </ul>
+    <hr>
+    <section id="section">
+
+        <article id="insertArticle">
+            <form id="insertForm" name="POST">
+                <h2>신규등록</h2>
+                <fieldset>
+                    <input class="inputField" type="text" name="name" placeholder="이름을 입력하세요" autofocus>
+                    <input class="inputField" type="text" name="pnumber" placeholder="전화번호를 입력하세요">
+                    <label>
+                        <input class="inputField" type="radio" name="gender" value="남성">남성
+                    </label>
+                    <label>
+                        <input class="inputField" type="radio" name="gender" value="여성">여성
+                    </label>
+                    <input type="button" id="member-post" value="가입 신청">
+                </fieldset>
+            </form>
+        </article>
+
+        <article id="searchArticle">
+            <form id="searchForm" name="GET">
+                <h2>검색하기</h2>
+                <fieldset>
+                    <p><input class="inputField" type="text" name="userid" placeholder="계정을 입력하세요" autofocus></p>
+                    <p><input class="inputField" type="password" name="userpw" placeholder="비밀번호를 입력하세요"></p>
+                    <p><input type="button" id="member-get" value="로그인"></p>
+                </fieldset>
+            </form>
+        </article>
+
+        <article id="updateArticle">
+            <form id="updateForm" name="PUT">
+                <h2>수정하기</h2>
+                <fieldset>
+                    <p><input class="inputField" type="text" name="userid" placeholder="계정을 입력하세요"></p>
+                    <p><input class="inputField" type="password" name="userpw" placeholder="현재 비밀번호를 입력하세요"></p>
+                    <p><input class="inputField" type="password" name="newpw" placeholder="새로운 비밀번호를 입력하세요"></p>
+                    <p><input class="inputField" type="password" name="newpw2" placeholder="새로운 비밀번호를 확인해주세요"></p>
+                    <p><input class="inputField" type="text" name="username" placeholder="변경할 이름을 입력하세요"></p>
+                    <p><input type="button" id="member-put" value="정보 수정"></p>
+                </fieldset>
+            </form>
+        </article>
+
+        <article id="deleteArticle">
+            <form id="deleteForm" name="DELETE">
+                <h2>삭제하기</h2>
+                <fieldset>
+                    <p><input class="inputField" type="text" name="userid" placeholder="ID" autofocus></p>
+                    <p><input class="inputField" type="password" name="userpw" placeholder="Password"></p>
+                    <p><input type="button" id="member-delete" value="탈퇴"></p>
+                </fieldset>
+            </form>
+        </article>
+
+    </section>
+
+    <script>
+        const liList = document.querySelectorAll('ul.tab > li')
+        const articleList = document.querySelectorAll('article')
+
+        liList.forEach((element, index) => {
+            element.onclick = function() {
+                articleList.forEach(e => e.classList.remove('selected'))
+                liList.forEach(e => e.classList.remove('selected'))
+
+                articleList[index].classList.add('selected')
+                liList[index].classList.add('selected')
+            }
+        })
+    </script>
+</body>
+
+</html>
