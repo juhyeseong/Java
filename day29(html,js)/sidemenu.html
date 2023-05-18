@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+    <style>
+        aside {
+            position: absolute;
+            top: 0;
+            left: 0px;
+            transition-duration: 0.5s;
+
+            width: 300px;
+            height: 100vh;
+
+            box-shadow: 5px 5px 5px black;
+            border: 2px solid black;
+            background-color: white;
+        }
+        aside.hidden {
+            left: -310px
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>버튼을 클릭하면 열리는 사이드 메뉴</h1>
+        <hr>
+    </header>
+
+    <aside class="hidden">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+            <li>메뉴5</li>
+        </ul>
+    </aside>
+
+    <main>
+        <h3>메인 메뉴</h3>
+        <p align="right">
+            <button id="open">사이드 메뉴 열기</button>
+        </p>
+    </main>
+
+    <script>
+        const open = document.getElementById('open')
+        const aside = document.querySelector('aside')
+
+        // onmouseover
+        open.onclick = function() {
+            // aside 요소의 클래스 목록에 hidden이 포함되어 있는가
+            console.log(aside.classList.contains('hidden'))
+            console.log(aside.classList)
+
+            const flag = aside.classList.contains('hidden')
+            if(flag) {  // 포함되어 있으면
+                aside.classList.remove('hidden')    // hidden을 제거
+            }   
+            else {      // 포함되어 있지 않으면
+                aside.classList.add('hidden')       // hidden을 추가
+            }
+        }
+    </script>
+</body>
+</html>
