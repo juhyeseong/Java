@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        #root {
+            display: flex;
+        }
+        .item {
+            width: 500px;
+            height: 400px;
+            background-image: url('img/1.jpg');
+            background-position: center;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            border: 3px solid gray;
+            flex: 1;
+            transition-duration: 1s;
+            opacity: 0.2;
+        }
+        .item.selected {
+            flex: 20;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>선택한 그림만 펼쳐보기</h1>
+    <hr>
+
+    <div id="root"></div>
+
+    <p>
+        <input type="number" name="idx" min="0" max="8" value="0">
+    </p>
+    <script>
+        // 자바스크립트에서 참조할 데이터 혹은 문서요소(element)를 변수로 선언
+        const arr = [
+            'img/1.jpg',
+            'img/2.jpg',
+            'img/3.jpg',
+            'img/4.jpg',
+            'img/5.jpg',
+            'img/6.jpg',
+            'img/7.jpg',
+            'img/8.jpg',
+            'img/9.jpg'
+        ]
+        const root = document.getElementById('root')
+        const input = document.querySelector('input[name="idx"]')
+        
+        // 연결하고 싶은 함수를 만든다
+        const init = function() {
+            for(let i = 0; i < arr.length; i++) {
+                const item = document.createElement('div')
+                // <div></div>
+
+                // item.className = 'item'
+                item.classList.add('item')
+                // <div class="item"></div>
+
+                // item.style.backgroundImage = 'url("' + arr[i] + '")'
+                item.style.backgroundImage = `url('${arr[i]}')`
+                // <div class="item" style="background-image: url('img/1.jpg')"></div>
+
+                // 스크립트로 생성한 객체는 이벤트 연결 시 document에서 찾지 않고
+                // 생성하는 시점에서 이벤트를 연결한다
+                item.onmouseover = mouseoverHandler
+
+                root.appendChild(item)
+            }
+            // 모든 item을 추가한 이후, 0번째 요소에만 selected를 추가한다
+            document.querySelector('.item').classList.add('selected')
+        }
+
+        const changeHandler = function(event) {
+            const itemList = document.querySelectorAll('.item')
+            itemList.forEach(item => item.classList.remove('selected'))
+
+            const idx = event.target.value
+            itemList[idx].classList.add('selected')
+        }
+
+        const mouseoverHandler = function(event) {
+            const itemList = document.querySelectorAll('.item')
+            itemList.forEach(item => item.classList.remove('selected'))
+
+            // 마우스를 올린 대상을 보여준다
+            event.target.classList.add('selected')
+       }
+        // 요소의 특정 이벤트에 함수를 연결한다
+        window.onload = init
+        input.onchange = changeHandler
+    </script>
+</body>
+</html>

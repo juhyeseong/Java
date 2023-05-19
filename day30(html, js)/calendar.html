@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+    <style>
+        #root {
+            width: 800px;
+            margin: auto;
+            display: flex;
+            flex-flow: wrap;
+            border: 5px solid black;
+            box-sizing: border-box;
+        }
+        .red {color: red;}
+        .blue {color: blue;}
+        .other {
+            opacity: 0.2;
+        }
+        .item {
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid black;
+            width: calc((100% / 7));
+            height: 75px;
+        }
+        .title {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <h1>날짜를 화면에 반영하기</h1>
+    <hr>
+
+    <div class="title">
+        <button><<</button>
+        <h2>4월</h2>
+        <button>>></button>
+    </div>
+    <div id="root"></div>
+
+    <script>
+        // 2023년 4월의 날짜를 div#root 에 출력하세요
+        // (4월은 30일까지 있습니다)
+        // 토용일은 파란색, 일요일은 빨간색으로 출력하세요
+        // 각 내용은 div.item 으로 묶어서 처리하세요
+        const root = document.getElementById('root')
+        
+        const myDateFormat = function(d) {
+            const dayArr = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+            let result = ''
+            const m = d.getMonth() + 1
+            result += `${d.getFullYear()}-`
+            result += `${m < 10 ? '0' + m : m}-`
+            result += `${d.getDate() < 10 ? '0' + d.getDate() : d.getDate()} `
+            result += dayArr[d.getDay()]
+            return result
+        }
+
+        for(let i = -5; i <= 36; i++) {
+            const item = document.createElement('div')
+            item.classList.add('item')
+            // p.innerText = i
+            const d = new Date(2023, 3, i)
+            item.innerText = myDateFormat(d)
+
+            if(d.getDay() == 0)     item.classList.add('red')
+            if(d.getDay() == 6)     item.classList.add('blue')
+            if(d.getMonth() != 3)   item.classList.add('other')
+            root.appendChild(item)                    
+        }
+
+    </script>
+</body>
+</html>
